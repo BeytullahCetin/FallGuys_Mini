@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
         characterController.SimpleMove(moveVector * movementSpeed);
         transform.forward = Vector3.Lerp(transform.forward, moveVector, rotateSpeed * Time.deltaTime);
 
-
-
         if (characterController.isGrounded && moveVector.magnitude > 0)
         {
             OnPlayerFall(false);
