@@ -12,7 +12,14 @@ public class PlayerController : MonoBehaviour
         var hit = other.gameObject.GetComponent<Obstacle>();
         if (hit)
         {
-            Die();
+            foreach (Collider col in hit.GetColliders)
+            {
+                if (col.name == other.collider.name)
+                {
+                    Die();
+                    return;
+                }
+            }
         }
     }
 

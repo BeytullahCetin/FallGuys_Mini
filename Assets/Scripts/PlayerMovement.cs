@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         {
             OnPlayerMovement(false);
         }
-        else
+        else if (false == characterController.isGrounded)
         {
             OnPlayerFall(true);
         }

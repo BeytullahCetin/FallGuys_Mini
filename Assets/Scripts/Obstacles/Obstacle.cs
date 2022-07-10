@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    
+    [SerializeField] Collider[] colliders;
+    public Collider[] GetColliders { get { return colliders; } }
 }

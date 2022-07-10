@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45f3efb277cca94daef58a990ea4d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliders:
+  - {fileID: 3082866753088777935}
   horizontalDistance: 10
   horizontalMovementSpeed: 5
   rotateSpeed: 500
