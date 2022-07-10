@@ -32,19 +32,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
-        characterController.Move(moveVector * Time.deltaTime * movementSpeed);
         // Character Controller SimpleMove applies gravity to game object
-        //characterController.SimpleMove(Vector3.zero);
-        //transform.position += moveVector * Time.deltaTime * movementSpeed;
+        characterController.SimpleMove(moveVector * movementSpeed);
+        transform.forward = Vector3.Lerp(transform.forward, moveVector, rotateSpeed * Time.deltaTime);
 
-        if (moveVector.magnitude > 0)
+
+
+        if (characterController.isGrounded && moveVector.magnitude > 0)
         {
-            transform.forward = Vector3.Lerp(transform.forward, moveVector, rotateSpeed * Time.deltaTime);
+            OnPlayerFall(false);
             OnPlayerMovement(true);
+        }
+        else if (moveVector.magnitude <= 0)
+        {
+            OnPlayerMovement(false);
         }
         else
         {
-            OnPlayerMovement(false);
+            OnPlayerFall(true);
         }
     }
 }
