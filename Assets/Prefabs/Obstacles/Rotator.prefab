@@ -185,7 +185,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3274715990397780987}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0070900917
   m_Height: 0.105824925
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d7553c96aa3ed4e9ebd24acb3dc4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliders: []
   rotateSpeed: 500
+  pushForce: 100
   minTimeToChangeDirection: 2
   maxTimeToChangeDirection: 5

@@ -820,7 +820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &429102547
 Transform:
   m_ObjectHideFlags: 0
@@ -1011,6 +1011,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 555932141}
   startTransform: {fileID: 2044504859}
+--- !u!114 &555932137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555932135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d6b623b94e1c1478a7a63a22db00fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 555932141}
 --- !u!143 &555932141 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 555932136, guid: f2a3e0fbb265c7b49ab8e13aaa67ea06, type: 3}
@@ -1519,7 +1532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &882693713
 Transform:
   m_ObjectHideFlags: 0
