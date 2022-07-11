@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : Obstacle
+public class Rotator : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 500f;
     [SerializeField] float minTimeToChangeDirection = 2f;
