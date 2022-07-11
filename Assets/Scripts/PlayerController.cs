@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit other)
     {
-        var hit = other.gameObject.GetComponent<Obstacle>();
+        var hit = other.gameObject.GetComponentInParent<Obstacle>();
         if (hit)
         {
             foreach (Collider col in hit.GetColliders)
