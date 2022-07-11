@@ -112,5 +112,5 @@ MonoBehaviour:
   colliders:
   - {fileID: 3082866753088777935}
   horizontalDistance: 10
-  horizontalMovementSpeed: 5
+  horizontalMovementSpeed: 15
   rotateSpeed: 500
