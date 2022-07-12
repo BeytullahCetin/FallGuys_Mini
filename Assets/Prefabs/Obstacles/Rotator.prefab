@@ -187,10 +187,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.0070900917
-  m_Height: 0.105824925
+  m_Radius: 0.016892912
+  m_Height: 0.10582493
   m_Direction: 2
-  m_Center: {x: 0.00046878814, y: 0.0000000047683715, z: 0.07526629}
+  m_Center: {x: 0.00046878814, y: -0.00065351726, z: 0.07526629}
 --- !u!1 &5030657559495803499
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 500
-  pushForce: 100
+  pushForce: 200
   minTimeToChangeDirection: 2
   maxTimeToChangeDirection: 5
