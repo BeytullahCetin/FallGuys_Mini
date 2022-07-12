@@ -164,8 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 555932136}
+  isGroundedOffset: {x: 0, y: 0.5, z: 0}
   movementSpeed: 10
   rotateSpeed: 15
+  gravityForce: 3
 --- !u!114 &1964899400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +193,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.5
-  m_Radius: 0.7
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
