@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public enum GamePhase { Runner, WallPaint };
+
+    public event Action OnGameCompleted = delegate { };
 
     public static GameManager Instance { get; private set; }
 
@@ -41,9 +44,11 @@ public class GameManager : MonoBehaviour
         switch (currentPhase)
         {
             case GamePhase.Runner:
+                OnGameCompleted();
+
                 currentPhase = GamePhase.WallPaint;
                 playerCam.enabled = false;
-                DisableAllComponents(player);
+                StartCoroutine(DisableAllComponents(player));
 
                 break;
 
@@ -53,8 +58,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void DisableAllComponents(Transform tranformToDisable)
+    IEnumerator DisableAllComponents(Transform tranformToDisable)
     {
+        yield return new WaitForSeconds(2f);
+
         foreach (MonoBehaviour monoBehaviour in tranformToDisable.GetComponents<MonoBehaviour>())
         {
             monoBehaviour.enabled = false;

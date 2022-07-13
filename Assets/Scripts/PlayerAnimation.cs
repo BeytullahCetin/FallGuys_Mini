@@ -11,12 +11,14 @@ public class PlayerAnimation : MonoBehaviour
     {
         PlayerMovement.OnPlayerMovement += MoveAnimation;
         PlayerMovement.OnPlayerFall += FallAnimation;
+        GameManager.Instance.OnGameCompleted += FinishAnimation;
     }
 
     private void OnDisable()
     {
         PlayerMovement.OnPlayerMovement -= MoveAnimation;
         PlayerMovement.OnPlayerFall -= FallAnimation;
+        GameManager.Instance.OnGameCompleted -= FinishAnimation;
     }
 
     void MoveAnimation(bool state)
@@ -27,5 +29,10 @@ public class PlayerAnimation : MonoBehaviour
     void FallAnimation(bool state)
     {
         anim.SetBool("OnFalling", state);
+    }
+
+    void FinishAnimation()
+    {
+        anim.SetTrigger("OnVictory");
     }
 }
