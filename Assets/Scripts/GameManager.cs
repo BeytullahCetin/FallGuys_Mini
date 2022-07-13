@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] Transform player;
 
     [SerializeField] CinemachineVirtualCamera playerCam;
     [SerializeField] CinemachineVirtualCamera wallCam;
+
+    [SerializeField] Transform player;
     [SerializeField] Transform wallTransform;
 
     bool isLevelCompleted = false;
@@ -47,7 +48,10 @@ public class GameManager : MonoBehaviour
                 OnGameCompleted();
 
                 currentPhase = GamePhase.WallPaint;
+                wallTransform.gameObject.SetActive(true);
+
                 playerCam.enabled = false;
+
                 StartCoroutine(DisableAllComponents(player));
 
                 break;
