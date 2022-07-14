@@ -13,7 +13,6 @@ public class HalfDonut : MonoBehaviour
         while (true)
         {
             donutStick.transform.localPosition = new Vector3(Mathf.PingPong(Time.time * speed, distance * 2) - distance, 0, 0);
-            ;
 
             yield return null;
         }
