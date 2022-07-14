@@ -2,22 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using TMPro;
 using UnityEngine;
+using FreeDraw;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GamePhase { Runner, WallPaint };
-
-    public event Action OnGameCompleted = delegate { };
-
     public static GameManager Instance { get; private set; }
 
+    public enum GamePhase { Runner, WallPaint };
 
-    [SerializeField] CinemachineVirtualCamera playerCam;
-    [SerializeField] CinemachineVirtualCamera wallCam;
+    public event Action OnWallPhaseStarted = delegate { };
 
-    [SerializeField] Transform player;
-    [SerializeField] Transform wallTransform;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] CinemachineVirtualCamera playerCamera;
+
+    [SerializeField] GameObject wall;
+    [SerializeField] int paintPercentageToWin;
+    [SerializeField] TextMeshProUGUI wallPaintPercentageText;
+    [SerializeField] GameObject restartButton;
 
     bool isLevelCompleted = false;
     GamePhase currentPhase;
@@ -35,6 +39,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    private void OnEnable()
+    {
+        Drawable.OnWallPaintedChanged += ReceiveWallPaintPercentage;
+    }
+
+    private void OnDisable()
+    {
+        Drawable.OnWallPaintedChanged -= ReceiveWallPaintPercentage;
+    }
+
+    private void ReceiveWallPaintPercentage(int obj)
+    {
+        wallPaintPercentageText.SetText(obj.ToString());
+
+        if (obj >= paintPercentageToWin)
+        {
+            CompleteLevel();
+        }
+
+    }
+
     private void Start()
     {
         currentPhase = GamePhase.Runner;
@@ -45,21 +71,36 @@ public class GameManager : MonoBehaviour
         switch (currentPhase)
         {
             case GamePhase.Runner:
-                OnGameCompleted();
-
-                currentPhase = GamePhase.WallPaint;
-                wallTransform.gameObject.SetActive(true);
-
-                playerCam.enabled = false;
-
-                StartCoroutine(DisableAllComponents(player));
-
+                StartWallPaintPhase();
                 break;
 
             case GamePhase.WallPaint:
+                EndGame();
                 break;
 
         }
+    }
+
+    void StartWallPaintPhase()
+    {
+        OnWallPhaseStarted();
+        StartCoroutine(DisableAllComponents(playerTransform));
+        playerCamera.enabled = false;
+        Camera.main.orthographic = true;
+        wall.SetActive(true);
+        wallPaintPercentageText.gameObject.SetActive(true);
+
+        currentPhase = GamePhase.WallPaint;
+    }
+
+    void EndGame()
+    {
+        restartButton.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator DisableAllComponents(Transform tranformToDisable)

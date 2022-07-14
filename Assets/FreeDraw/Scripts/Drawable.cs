@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,7 +14,44 @@ namespace FreeDraw
     // 4. Hold down left mouse to draw on this texture!
     public class Drawable : MonoBehaviour
     {
+        public static event Action<int> OnWallPaintedChanged = delegate { };
         bool mouseButtonDown = false;
+        float textureResolution;
+        int paintedPixel = 0;
+        float paintedPixelPercentage;
+
+        public void OnFireInput(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                mouseButtonDown = true;
+
+            if (context.canceled)
+            {
+                mouseButtonDown = false;
+            }
+        }
+
+        void CheckPainting()
+        {
+            int tempCount = 0;
+            for (int h = 0; h < drawable_texture.height; h++)
+            {
+                for (int w = 0; w < drawable_texture.width; w++)
+                {
+                    if (Color.red == drawable_texture.GetPixel(w, h))
+                    {
+                        tempCount++;
+                    }
+                }
+            }
+            if (tempCount != paintedPixel)
+            {
+                paintedPixel = tempCount;
+                paintedPixelPercentage = (paintedPixel / textureResolution) * 100;
+                OnWallPaintedChanged((int)paintedPixelPercentage);
+            }
+        }
+
 
         // PEN COLOUR
         public static Color Pen_Colour = Color.red;     // Change these to change the default drawing settings
@@ -132,18 +170,6 @@ namespace FreeDraw
         }
         //////////////////////////////////////////////////////////////////////////////
 
-        public void OnFireInput(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                mouseButtonDown = true;
-
-            if (context.canceled)
-                mouseButtonDown = false;
-        }
-
-
-
-
 
         // This is where the magic happens.
         // Detects when user is left clicking, which then call the appropriate function
@@ -165,7 +191,6 @@ namespace FreeDraw
                 Collider2D hit = Physics2D.OverlapPoint(mouse_world_position, Drawing_Layers.value);
                 if (hit != null && hit.transform != null)
                 {
-                    Debug.Log("hit" + mouse_world_position + " " + hit.transform.position);
                     // We're over the texture we're drawing on!
                     // Use whatever function the current brush is
                     current_brush(mouse_world_position);
@@ -251,6 +276,8 @@ namespace FreeDraw
         {
             drawable_texture.SetPixels32(cur_colors);
             drawable_texture.Apply();
+
+            CheckPainting();
         }
 
 
@@ -314,6 +341,7 @@ namespace FreeDraw
 
             drawable_sprite = this.GetComponent<SpriteRenderer>().sprite;
             drawable_texture = drawable_sprite.texture;
+            textureResolution = drawable_texture.width * drawable_texture.height;
 
             // Initialize clean pixels to use
             clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];

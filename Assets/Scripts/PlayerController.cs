@@ -7,28 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] Transform startTransform;
 
-    /* private void OnControllerColliderHit(ControllerColliderHit other)
-    {
-        var hit = other.gameObject.GetComponentInParent<Obstacle>();
-        if (hit)
-        {
-            foreach (Collider col in hit.GetColliders)
-            {
-                if (col.name == other.collider.name)
-                {
-                    Die();
-                    return;
-                }
-            }
-        }
-
-        var rotator = other.gameObject.GetComponentInParent<Rotator>();
-        if (rotator)
-        {
-            GetComponent<ImpactReceiver>().AddImpact(rotator.transform.right, rotator.PushForce);
-        }
-    } */
-
     private void OnTriggerEnter(Collider other)
     {
         var hit = other.gameObject.GetComponentInParent<Obstacle>();

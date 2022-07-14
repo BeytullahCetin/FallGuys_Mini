@@ -11,14 +11,14 @@ public class PlayerAnimation : MonoBehaviour
     {
         PlayerMovement.OnPlayerMovement += MoveAnimation;
         PlayerMovement.OnPlayerFall += FallAnimation;
-        GameManager.Instance.OnGameCompleted += FinishAnimation;
+        GameManager.Instance.OnWallPhaseStarted += FinishAnimation;
     }
 
     private void OnDisable()
     {
         PlayerMovement.OnPlayerMovement -= MoveAnimation;
         PlayerMovement.OnPlayerFall -= FallAnimation;
-        GameManager.Instance.OnGameCompleted -= FinishAnimation;
+        GameManager.Instance.OnWallPhaseStarted -= FinishAnimation;
     }
 
     void MoveAnimation(bool state)
