@@ -31,22 +31,25 @@ namespace FreeDraw
             }
         }
 
+        // Calculate how many pixels are painted red 
         void CheckPainting()
         {
-            int tempCount = 0;
+            int tempPixelCount = 0;
             for (int h = 0; h < drawable_texture.height; h++)
             {
                 for (int w = 0; w < drawable_texture.width; w++)
                 {
                     if (Color.red == drawable_texture.GetPixel(w, h))
                     {
-                        tempCount++;
+                        tempPixelCount++;
                     }
                 }
             }
-            if (tempCount != paintedPixel)
+            // Check if any pixel painted after last control
+            // If number not changed no need to tell UI to change percentage text
+            if (tempPixelCount != paintedPixel)
             {
-                paintedPixel = tempCount;
+                paintedPixel = tempPixelCount;
                 paintedPixelPercentage = (paintedPixel / textureResolution) * 100;
                 OnWallPaintedChanged((int)paintedPixelPercentage);
             }
@@ -277,6 +280,8 @@ namespace FreeDraw
             drawable_texture.SetPixels32(cur_colors);
             drawable_texture.Apply();
 
+            // Everytime when a pixel painted this method called.
+            // This is needed for show the percentage of painted wall in real time
             CheckPainting();
         }
 
