@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int paintPercentageToWin;
     [SerializeField] TextMeshProUGUI wallPaintPercentageText;
     [SerializeField] GameObject paintInfoText;
+    [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject restartButton;
 
     bool isInfoTextActive = false;
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        Time.timeScale = 0;
     }
 
     private void OnEnable()
@@ -89,16 +92,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EndGame()
-    {
-        restartButton.gameObject.SetActive(true);
-    }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     private void ReceiveWallPaintPercentage(int obj)
     {
         if (isInfoTextActive)
@@ -113,5 +106,21 @@ public class GameManager : MonoBehaviour
         {
             CompleteLevel();
         }
+    }
+
+    public void StartGame()
+    {
+        mainMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    void EndGame()
+    {
+        restartButton.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
