@@ -21,9 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject wall;
     [SerializeField] int paintPercentageToWin;
     [SerializeField] TextMeshProUGUI wallPaintPercentageText;
+    [SerializeField] GameObject paintInfoText;
     [SerializeField] GameObject restartButton;
 
-    bool isLevelCompleted = false;
+    bool isInfoTextActive = false;
     GamePhase currentPhase;
 
     void Awake()
@@ -31,14 +32,8 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
-
 
     private void OnEnable()
     {
@@ -48,17 +43,6 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Drawable.OnWallPaintedChanged -= ReceiveWallPaintPercentage;
-    }
-
-    private void ReceiveWallPaintPercentage(int obj)
-    {
-        wallPaintPercentageText.SetText(obj.ToString());
-
-        if (obj >= paintPercentageToWin)
-        {
-            CompleteLevel();
-        }
-
     }
 
     private void Start()
@@ -84,13 +68,25 @@ public class GameManager : MonoBehaviour
     void StartWallPaintPhase()
     {
         OnWallPhaseStarted();
-        StartCoroutine(DisableAllComponents(playerTransform));
-        playerCamera.enabled = false;
-        Camera.main.orthographic = true;
+        DisableAllComponents(playerTransform);
+
         wall.SetActive(true);
+        paintInfoText.SetActive(true);
         wallPaintPercentageText.gameObject.SetActive(true);
 
+        isInfoTextActive = true;
+        playerCamera.enabled = false;
+        Camera.main.orthographic = true;
+
         currentPhase = GamePhase.WallPaint;
+    }
+
+    void DisableAllComponents(Transform tranformToDisable)
+    {
+        foreach (MonoBehaviour monoBehaviour in tranformToDisable.GetComponents<MonoBehaviour>())
+        {
+            monoBehaviour.enabled = false;
+        }
     }
 
     void EndGame()
@@ -103,13 +99,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    IEnumerator DisableAllComponents(Transform tranformToDisable)
+    private void ReceiveWallPaintPercentage(int obj)
     {
-        yield return new WaitForSeconds(2f);
-
-        foreach (MonoBehaviour monoBehaviour in tranformToDisable.GetComponents<MonoBehaviour>())
+        if (isInfoTextActive)
         {
-            monoBehaviour.enabled = false;
+            isInfoTextActive = false;
+            paintInfoText.SetActive(false);
+        }
+
+        wallPaintPercentageText.SetText(obj.ToString());
+
+        if (obj >= paintPercentageToWin)
+        {
+            CompleteLevel();
         }
     }
 }
