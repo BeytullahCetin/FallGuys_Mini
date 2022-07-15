@@ -38,7 +38,12 @@ public class DeathController : MonoBehaviour
     public void Die()
     {
         characterController.enabled = false;
-        transform.position = startTransform.position;
+        transform.position = GetRandomStartPosition();
         characterController.enabled = true;
+    }
+
+    Vector3 GetRandomStartPosition()
+    {
+        return startTransform.position + Vector3.forward * Random.Range(-5, 5) + Vector3.right * Random.Range(-5, 5); ;
     }
 }

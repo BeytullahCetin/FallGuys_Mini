@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI wallPaintPercentageText;
     [SerializeField] GameObject paintInfoText;
     [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject restartButton;
+    [SerializeField] GameObject restartPanel;
 
     bool isInfoTextActive = false;
     GamePhase currentPhase;
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        restartButton.gameObject.SetActive(true);
+        restartPanel.gameObject.SetActive(true);
     }
 
     public void RestartGame()

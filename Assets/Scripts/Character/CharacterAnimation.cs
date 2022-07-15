@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class CharacterAnimation : MonoBehaviour
 {
     [SerializeField] Animator anim;
     [SerializeField] CharacrMovement characrMovement;

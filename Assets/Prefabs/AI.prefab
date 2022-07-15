@@ -82,10 +82,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 3328619366327750986}
-  isGroundedOffset: {x: 0, y: 0, z: 0}
-  movementSpeed: 1
-  rotateSpeed: 1
-  gravityForce: 0
+  isGroundedOffset: {x: 0, y: 0.5, z: 0}
+  movementSpeed: 10
+  rotateSpeed: 15
+  gravityForce: 3
   navMeshAgent: {fileID: 546178637}
   destination: {fileID: 0}
 --- !u!195 &546178637
@@ -109,7 +109,7 @@ NavMeshAgent:
   m_Height: 2.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 2
 --- !u!143 &3328619366327750986
 CharacterController:
   m_ObjectHideFlags: 0

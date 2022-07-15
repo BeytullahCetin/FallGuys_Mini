@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 555932137}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1964899399}
+  characrMovement: {fileID: 1964899397}
 --- !u!143 &555932136
 CharacterController:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.5
-  m_Radius: 0.1
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -212,7 +213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 555932136}
-  navMeshAgent: {fileID: 0}
   startTransform: {fileID: 0}
 --- !u!114 &555932137
 MonoBehaviour:

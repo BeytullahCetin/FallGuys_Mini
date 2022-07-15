@@ -35,7 +35,7 @@ public class AIMovement : PlayerMovement
         base.LateUpdate();
     }
 
-    new public void GetMovementInput()
+    public void GetMovementInput()
     {
         Vector3 lookPos;
         Quaternion targetRot;
