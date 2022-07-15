@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 555932136}
+  navMeshAgent: {fileID: 0}
   startTransform: {fileID: 0}
 --- !u!114 &555932137
 MonoBehaviour:

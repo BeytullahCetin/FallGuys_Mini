@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1267248648137622146}
   - component: {fileID: 3923440837362890312}
   - component: {fileID: 5960862421012627843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotatorBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,8 @@ GameObject:
   - component: {fileID: 1267248646610278116}
   - component: {fileID: 3923440839058793006}
   - component: {fileID: 5588963183896034983}
-  m_Layer: 0
+  - component: {fileID: 463692111680012139}
+  m_Layer: 8
   m_Name: RotatingStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +192,20 @@ CapsuleCollider:
   m_Height: 0.10582493
   m_Direction: 2
   m_Center: {x: 0.00046878814, y: -0.00065351726, z: 0.07526629}
+--- !u!136 &463692111680012139
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274715990397780987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0066969097
+  m_Height: 0.102345645
+  m_Direction: 2
+  m_Center: {x: 0.0005698335, y: 0.0000000047683715, z: 0.07778505}
 --- !u!1 &5030657559495803499
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030657559495803498}
   - component: {fileID: 917665277272543926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
