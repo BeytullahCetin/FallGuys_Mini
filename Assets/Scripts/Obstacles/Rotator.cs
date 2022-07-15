@@ -37,4 +37,19 @@ public class Rotator : MonoBehaviour
             yield return null;
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        var impactReceiver = other.gameObject.GetComponent<ImpactReceiver>();
+        
+        if (impactReceiver)
+        {
+            Vector3 dir = transform.right; ;
+            if (false == IsClokwise)
+            {
+                dir = -dir;
+            }
+            impactReceiver.AddImpact(dir, PushForce);
+        }
+    }
 }

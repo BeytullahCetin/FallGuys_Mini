@@ -22,17 +22,6 @@ public class DeathController : MonoBehaviour
                 }
             }
         }
-
-        var rotator = other.gameObject.GetComponentInParent<Rotator>();
-        if (rotator)
-        {
-            Vector3 dir = rotator.transform.right; ;
-            if (false == rotator.IsClokwise)
-            {
-                dir = -dir;
-            }
-            GetComponent<ImpactReceiver>().AddImpact(dir, rotator.PushForce);
-        }
     }
 
     public void Die()

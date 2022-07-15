@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ImpactReceiver : MonoBehaviour
 {
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
     [SerializeField] CharacterController character;
+    [SerializeField] float characterPushForce = 2f;
 
     // Update is called once per frame
     void Update()
@@ -21,5 +23,14 @@ public class ImpactReceiver : MonoBehaviour
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
         impact += dir.normalized * force / mass;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var impactReceiver = hit.gameObject.GetComponent<ImpactReceiver>();
+        if (impactReceiver)
+        {
+            impactReceiver.AddImpact(transform.forward, characterPushForce);
+        }
     }
 }

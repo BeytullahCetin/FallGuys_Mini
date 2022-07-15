@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 555932136}
+  characterPushForce: 2
 --- !u!1 &841234539286219457
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9049580394056292408}
   - component: {fileID: 3082866753088777935}
   - component: {fileID: 9065749941620243180}
-  - component: {fileID: 6336208687197955815}
+  - component: {fileID: 764273871963880290}
   m_Layer: 0
   m_Name: HorizontalObstacle
   m_TagString: Untagged
@@ -113,9 +113,9 @@ MonoBehaviour:
   colliders:
   - {fileID: 3082866753088777935}
   horizontalDistance: 10
-  horizontalMovementSpeed: 15
-  rotateSpeed: 500
---- !u!208 &6336208687197955815
+  horizontalMovementSpeed: 10
+  rotateSpeed: 300
+--- !u!208 &764273871963880290
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +124,10 @@ NavMeshObstacle:
   m_GameObject: {fileID: 7392215804407658989}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.105, y: 0.128, z: 0.047000002}
+  m_Shape: 0
+  m_Extents: {x: 0.047000002, y: 0.128, z: 0.047000002}
   m_MoveThreshold: 0.1
   m_Carve: 1
-  m_CarveOnlyStationary: 0
+  m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
