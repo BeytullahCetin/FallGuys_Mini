@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 3328619366327750986}
   - component: {fileID: 1727643715}
   - component: {fileID: 1727643716}
+  - component: {fileID: 6174372985581132147}
+  - component: {fileID: 6278379164027379216}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -79,13 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2107f0fddaca34c9bc831b73c3fd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 546178637}
   characterController: {fileID: 3328619366327750986}
-  destination: {fileID: 0}
   isGroundedOffset: {x: 0, y: 0, z: 0}
   movementSpeed: 1
   rotateSpeed: 1
   gravityForce: 0
+  navMeshAgent: {fileID: 546178637}
+  destination: {fileID: 0}
 --- !u!195 &546178637
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -152,8 +154,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 3328619366327750986}
-  navMeshAgent: {fileID: 546178637}
   startTransform: {fileID: 0}
+--- !u!114 &6174372985581132147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771491139353665449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57cf48f7e5f85241b9c46fa7029e2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6278379164027379216}
+  characrMovement: {fileID: 546178638}
+--- !u!95 &6278379164027379216
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771491139353665449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 217b2f5c433a1f54ebaeb5f416aaf79a, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2b676b1c94065dd40933af514031690a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5771491138447099004
 PrefabInstance:
   m_ObjectHideFlags: 0

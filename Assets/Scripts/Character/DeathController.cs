@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerController : MonoBehaviour
+public class DeathController : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
-    [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform startTransform;
 
     private void OnTriggerEnter(Collider other)
@@ -38,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Died");
-
         characterController.enabled = false;
         transform.position = startTransform.position;
         characterController.enabled = true;

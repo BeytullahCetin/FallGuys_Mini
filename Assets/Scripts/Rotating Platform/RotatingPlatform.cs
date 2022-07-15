@@ -11,7 +11,7 @@ public class RotatingPlatform : MonoBehaviour
     {
             for (int i = 0; i < parts.Length; i++)
             {
-                if (i % 2 == 0)
+                if (i % 2 != 0)
                 {
                     parts[i].Rotate(Vector3.forward * Time.deltaTime * speed);
                 }

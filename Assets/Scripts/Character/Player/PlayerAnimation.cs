@@ -6,18 +6,19 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] CharacrMovement characrMovement;
 
     private void OnEnable()
     {
-        PlayerMovement.OnPlayerMovement += MoveAnimation;
-        PlayerMovement.OnPlayerFall += FallAnimation;
+        characrMovement.OnPlayerMovement += MoveAnimation;
+        characrMovement.OnPlayerFall += FallAnimation;
         GameManager.Instance.OnWallPhaseStarted += FinishAnimation;
     }
 
     private void OnDisable()
     {
-        PlayerMovement.OnPlayerMovement -= MoveAnimation;
-        PlayerMovement.OnPlayerFall -= FallAnimation;
+        characrMovement.OnPlayerMovement -= MoveAnimation;
+        characrMovement.OnPlayerFall -= FallAnimation;
         GameManager.Instance.OnWallPhaseStarted -= FinishAnimation;
     }
 

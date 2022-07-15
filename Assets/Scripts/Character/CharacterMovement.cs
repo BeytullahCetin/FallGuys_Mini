@@ -1,38 +1,30 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
 
-public class PlayerMovement : MonoBehaviour
+public class CharacrMovement : MonoBehaviour
 {
-    public static Action<bool> OnPlayerMovement = delegate { };
-    public static Action<bool> OnPlayerFall = delegate { };
+    public Action<bool> OnPlayerMovement = delegate { };
+    public Action<bool> OnPlayerFall = delegate { };
 
     [SerializeField] CharacterController characterController;
 
-    Vector2 movementInput;
-    Vector3 moveVector;
+    [SerializeField] protected Vector3 isGroundedOffset;
 
-    [SerializeField] Vector3 isGroundedOffset;
+    [SerializeField] protected float movementSpeed = 1f;
+    [SerializeField] protected float rotateSpeed = 1f;
 
-    [SerializeField] float movementSpeed = 1f;
-    [SerializeField] float rotateSpeed = 1f;
+    [SerializeField] protected float gravityForce;
+    
+    protected Vector3 gravity;
+    protected Vector3 moveVector;
 
-    [SerializeField] float gravityForce;
-    Vector3 gravity;
-
-    private void LateUpdate()
+    protected virtual void LateUpdate()
     {
         Movement();
         IsGrounded();
-    }
-
-    public void GetMovementInput(InputAction.CallbackContext context)
-    {
-        movementInput = context.ReadValue<Vector2>();
-
-        moveVector.x = movementInput.x;
-        moveVector.z = movementInput.y;
-        moveVector = moveVector.normalized;
     }
 
     void Movement()
@@ -74,6 +66,5 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.SetParent(null);
         return false;
-
     }
 }
