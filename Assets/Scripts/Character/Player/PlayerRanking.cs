@@ -33,13 +33,13 @@ public class PlayerRanking : MonoBehaviour
     {
         if (currentRanking <= 3)
         {
-            congratsText.SetText("Congratulations!\n\n" +
-            $"You finished {playerRankingText.text}");
+            congratsText.SetText("CONGRATULATIONS!\n" +
+            $"YOU FINISHED {playerRankingText.text}");
         }
         else
         {
-            congratsText.SetText("You lost!\n" +
-            "Wanna try again?");
+            congratsText.SetText("YOU LOST!\n" +
+            "WANNA TRY AGAIN?");
         }
     }
 
