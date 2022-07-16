@@ -14,7 +14,7 @@ public class CharacrMovement : MonoBehaviour
     [SerializeField] protected float rotateSpeed = 1f;
 
     [SerializeField] protected float gravityForce;
-    
+
     protected Vector3 gravity;
     protected Vector3 moveVector;
 
@@ -54,6 +54,7 @@ public class CharacrMovement : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
             {
                 transform.SetParent(hit.transform);
+                transform.rotation = Quaternion.identity;
                 return true;
             }
         }
