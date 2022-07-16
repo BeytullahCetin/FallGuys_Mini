@@ -4,7 +4,6 @@ using System;
 
 public class PlayerMovement : CharacrMovement
 {
-
     Vector2 movementInput;
 
     protected override void LateUpdate()

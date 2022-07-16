@@ -1,23 +1,3 @@
-/* using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-public class AIMovement : MonoBehaviour
-{
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform target;
-
-    private void Update()
-    {
-        if (agent.enabled)
-            agent.SetDestination(target.position);
-    }
-}
- */
-
-
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
@@ -28,6 +8,13 @@ public class AIMovement : PlayerMovement
 
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform destination;
+
+    Vector3 randomOffset;
+
+    private void Start()
+    {
+        randomOffset = new Vector3(UnityEngine.Random.Range(0, 5), UnityEngine.Random.Range(0, 5), UnityEngine.Random.Range(0, 5));
+    }
 
     protected override void LateUpdate()
     {
@@ -40,7 +27,7 @@ public class AIMovement : PlayerMovement
         Vector3 lookPos;
         Quaternion targetRot;
 
-        navMeshAgent.destination = destination.position;
+        navMeshAgent.destination = destination.position + randomOffset;
 
 
         navMeshAgent.updatePosition = false;

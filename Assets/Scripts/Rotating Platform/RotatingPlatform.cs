@@ -9,16 +9,16 @@ public class RotatingPlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
-            for (int i = 0; i < parts.Length; i++)
+        for (int i = 0; i < parts.Length; i++)
+        {
+            if (i % 2 != 0)
             {
-                if (i % 2 != 0)
-                {
-                    parts[i].Rotate(Vector3.forward * Time.deltaTime * speed);
-                }
-                else
-                {
-                    parts[i].Rotate(Vector3.back * Time.deltaTime * speed);
-                }
+                parts[i].Rotate(Vector3.forward * Time.deltaTime * speed);
             }
+            else
+            {
+                parts[i].Rotate(Vector3.back * Time.deltaTime * speed);
+            }
+        }
     }
 }

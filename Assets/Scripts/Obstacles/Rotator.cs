@@ -5,8 +5,10 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 500f;
+    
     [SerializeField] float pushForce = 10f;
     public float PushForce { get { return pushForce; } }
+
     bool isClokwise;
     public bool IsClokwise { get { return isClokwise; } }
 

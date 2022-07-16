@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CharacrMovement : MonoBehaviour
 {
@@ -29,22 +26,18 @@ public class CharacrMovement : MonoBehaviour
 
     void Movement()
     {
-        // Character Controller SimpleMove applies gravity to game object
         transform.forward = Vector3.Lerp(transform.forward, moveVector, rotateSpeed * Time.deltaTime);
-
 
         if (IsGrounded())
         {
             characterController.Move(moveVector * movementSpeed * Time.deltaTime);
-            OnPlayerFall(false);
             OnPlayerMovement(moveVector.magnitude > 0 ? true : false);
+            OnPlayerFall(false);
         }
         else
         {
-            // This gravity is assigning seperately because of test purposes
-            // You can change gravity value from inspector
-            // and see the result
             gravity = new Vector3(0, -gravityForce, 0);
+            //When character not grounded affected by gravity
             characterController.Move((moveVector + gravity) * movementSpeed * Time.deltaTime);
             OnPlayerFall(true);
         }
