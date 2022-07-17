@@ -38,7 +38,7 @@ public class PlayerRanking : MonoBehaviour
         }
         else
         {
-            congratsText.SetText("YOU LOST!\n" +
+            congratsText.SetText($"YOU FINISHED {playerRankingText.text}!\n" +
             "WANNA TRY AGAIN?");
         }
     }
