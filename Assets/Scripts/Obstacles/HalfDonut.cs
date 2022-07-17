@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class HalfDonut : MonoBehaviour
+public class HalfDonut : Obstacle
 {
     [SerializeField] Transform donutStick;
     [SerializeField] float distance = 0.1f;

@@ -207,9 +207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafa45e2456d1f8488c8a219d1b3cee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliders:
+  - {fileID: 8351205573248650203}
+  - {fileID: 1786306565177367190}
+  - {fileID: 778050057694731761}
   donutStick: {fileID: 3857235351839897243}
-  speed: 1
   distance: 0.3
+  speed: 1
 --- !u!1 &3903827239715721009
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +372,6 @@ GameObject:
   - component: {fileID: 8351205573248650203}
   - component: {fileID: 1786306565177367190}
   - component: {fileID: 778050057694731761}
-  - component: {fileID: 143811573}
   - component: {fileID: 5875451366299598916}
   m_Layer: 0
   m_Name: Half_Donut_01
@@ -482,22 +485,6 @@ CapsuleCollider:
   m_Height: 0.15361509
   m_Direction: 2
   m_Center: {x: -0.024132384, y: 0.0020173192, z: -0.00028501154}
---- !u!114 &143811573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6623808827878011001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cfdabeffc447234cb54c485e6bf1ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliders:
-  - {fileID: 778050057694731761}
-  - {fileID: 1786306565177367190}
-  - {fileID: 8351205573248650203}
 --- !u!208 &5875451366299598916
 NavMeshObstacle:
   m_ObjectHideFlags: 0
