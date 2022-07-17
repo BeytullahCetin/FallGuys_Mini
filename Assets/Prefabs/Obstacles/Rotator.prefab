@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 200
-  pushForce: 200
+  pushForce: 350
   minTimeToChangeDirection: 3
   maxTimeToChangeDirection: 10
 --- !u!54 &6263749610393756277
