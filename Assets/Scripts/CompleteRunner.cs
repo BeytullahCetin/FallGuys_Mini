@@ -6,6 +6,7 @@ public class CompleteRunner : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.Instance.CompleteLevel();
+        if (other.gameObject.CompareTag("Player"))
+            GameManager.Instance.CompleteLevel();
     }
 }

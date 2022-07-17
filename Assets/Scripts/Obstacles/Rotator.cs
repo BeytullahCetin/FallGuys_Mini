@@ -1,12 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 500f;
+    
     [SerializeField] float pushForce = 10f;
     public float PushForce { get { return pushForce; } }
+
     bool isClokwise;
     public bool IsClokwise { get { return isClokwise; } }
 
@@ -35,6 +36,20 @@ public class Rotator : MonoBehaviour
             }
 
             yield return null;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        ImpactReceiver impactReceiver = other.gameObject.GetComponent<ImpactReceiver>();
+        if (impactReceiver)
+        {
+            Vector3 dir = transform.right; ;
+            if (false == IsClokwise)
+            {
+                dir = -dir;
+            }
+            impactReceiver.AddImpact(dir, PushForce);
         }
     }
 }

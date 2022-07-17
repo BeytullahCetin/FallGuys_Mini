@@ -1,23 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class CharacterAnimation : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] CharacterMovement characterMovement;
+
+    protected virtual void Awake()
+    {
+        characterMovement = GetComponent<CharacterMovement>();
+
+    }
 
     private void OnEnable()
     {
-        PlayerMovement.OnPlayerMovement += MoveAnimation;
-        PlayerMovement.OnPlayerFall += FallAnimation;
+        characterMovement.OnPlayerMovement += MoveAnimation;
+        characterMovement.OnPlayerFall += FallAnimation;
         GameManager.Instance.OnWallPhaseStarted += FinishAnimation;
     }
 
     private void OnDisable()
     {
-        PlayerMovement.OnPlayerMovement -= MoveAnimation;
-        PlayerMovement.OnPlayerFall -= FallAnimation;
+        characterMovement.OnPlayerMovement -= MoveAnimation;
+        characterMovement.OnPlayerFall -= FallAnimation;
         GameManager.Instance.OnWallPhaseStarted -= FinishAnimation;
     }
 

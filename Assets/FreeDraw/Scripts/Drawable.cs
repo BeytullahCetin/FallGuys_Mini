@@ -59,7 +59,7 @@ namespace FreeDraw
         // PEN COLOUR
         public static Color Pen_Colour = Color.red;     // Change these to change the default drawing settings
         // PEN WIDTH (actually, it's a radius, in pixels)
-        public static int Pen_Width = 3;
+        public static int Pen_Width = 10;
 
 
         public delegate void Brush_Function(Vector2 world_position);
@@ -270,7 +270,7 @@ namespace FreeDraw
             int array_pos = y * (int)drawable_sprite.rect.width + x;
 
             // Check if this is a valid position
-            if (array_pos > cur_colors.Length || array_pos < 0)
+            if (array_pos > cur_colors.Length-1 || array_pos < 0)
                 return;
 
             cur_colors[array_pos] = color;

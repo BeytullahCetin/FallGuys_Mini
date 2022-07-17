@@ -1,58 +1,42 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System;
+using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
-    public static Action<bool> OnPlayerMovement = delegate { };
-    public static Action<bool> OnPlayerFall = delegate { };
+    public Action<bool> OnPlayerMovement = delegate { };
+    public Action<bool> OnPlayerFall = delegate { };
 
     [SerializeField] CharacterController characterController;
 
-    Vector2 movementInput;
-    Vector3 moveVector;
+    [SerializeField] protected Vector3 isGroundedOffset;
 
-    [SerializeField] Vector3 isGroundedOffset;
+    [SerializeField] protected float movementSpeed = 1f;
+    [SerializeField] protected float rotateSpeed = 1f;
 
-    [SerializeField] float movementSpeed = 1f;
-    [SerializeField] float rotateSpeed = 1f;
+    [SerializeField] protected float gravityForce;
 
-    [SerializeField] float gravityForce;
-    Vector3 gravity;
+    protected Vector3 gravity;
+    protected Vector3 moveVector;
 
-    private void LateUpdate()
+    protected virtual void LateUpdate()
     {
         Movement();
-        IsGrounded();
-    }
-
-    public void GetMovementInput(InputAction.CallbackContext context)
-    {
-        movementInput = context.ReadValue<Vector2>();
-
-        moveVector.x = movementInput.x;
-        moveVector.z = movementInput.y;
-        moveVector = moveVector.normalized;
     }
 
     void Movement()
     {
-        // Character Controller SimpleMove applies gravity to game object
         transform.forward = Vector3.Lerp(transform.forward, moveVector, rotateSpeed * Time.deltaTime);
-
 
         if (IsGrounded())
         {
             characterController.Move(moveVector * movementSpeed * Time.deltaTime);
-            OnPlayerFall(false);
             OnPlayerMovement(moveVector.magnitude > 0 ? true : false);
+            OnPlayerFall(false);
         }
         else
         {
-            // This gravity is assigning seperately because of test purposes
-            // You can change gravity value from inspector
-            // and see the result
             gravity = new Vector3(0, -gravityForce, 0);
+            //When character not grounded affected by gravity
             characterController.Move((moveVector + gravity) * movementSpeed * Time.deltaTime);
             OnPlayerFall(true);
         }
@@ -74,6 +58,5 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.SetParent(null);
         return false;
-
     }
 }

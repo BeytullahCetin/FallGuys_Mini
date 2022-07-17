@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 8786393366138904611}
   - component: {fileID: 3542354432762835866}
   - component: {fileID: 5147908701189138220}
+  - component: {fileID: 1976479797296348382}
   m_Layer: 0
   m_Name: Half_Donut_Stick
   m_TagString: Untagged
@@ -337,6 +338,22 @@ CapsuleCollider:
   m_Height: 0.33967566
   m_Direction: 0
   m_Center: {x: 0.16986029, y: 0, z: 0.0005834043}
+--- !u!208 &1976479797296348382
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324302815942071463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.17, y: 0.010000001, z: 0.010000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0.17, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6623808827878011001
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +369,7 @@ GameObject:
   - component: {fileID: 1786306565177367190}
   - component: {fileID: 778050057694731761}
   - component: {fileID: 143811573}
+  - component: {fileID: 5875451366299598916}
   m_Layer: 0
   m_Name: Half_Donut_01
   m_TagString: Untagged
@@ -480,6 +498,22 @@ MonoBehaviour:
   - {fileID: 778050057694731761}
   - {fileID: 1786306565177367190}
   - {fileID: 8351205573248650203}
+--- !u!208 &5875451366299598916
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6623808827878011001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.096, y: 0.030000001, z: 0.15}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -0.082, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7387919877792955123
 GameObject:
   m_ObjectHideFlags: 0
