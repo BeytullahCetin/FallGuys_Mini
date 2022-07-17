@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 
-public class PlayerMovement : CharacrMovement
+public class PlayerMovement : CharacterMovement
 {
     Vector2 movementInput;
 

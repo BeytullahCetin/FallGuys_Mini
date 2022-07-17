@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
@@ -42,8 +41,7 @@ public class Rotator : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        var impactReceiver = other.gameObject.GetComponent<ImpactReceiver>();
-        
+        ImpactReceiver impactReceiver = other.gameObject.GetComponent<ImpactReceiver>();
         if (impactReceiver)
         {
             Vector3 dir = transform.right; ;

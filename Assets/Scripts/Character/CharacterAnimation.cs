@@ -3,19 +3,25 @@ using UnityEngine;
 public class CharacterAnimation : MonoBehaviour
 {
     [SerializeField] Animator anim;
-    [SerializeField] CharacrMovement characrMovement;
+    [SerializeField] CharacterMovement characterMovement;
+
+    protected virtual void Awake()
+    {
+        characterMovement = GetComponent<CharacterMovement>();
+
+    }
 
     private void OnEnable()
     {
-        characrMovement.OnPlayerMovement += MoveAnimation;
-        characrMovement.OnPlayerFall += FallAnimation;
+        characterMovement.OnPlayerMovement += MoveAnimation;
+        characterMovement.OnPlayerFall += FallAnimation;
         GameManager.Instance.OnWallPhaseStarted += FinishAnimation;
     }
 
     private void OnDisable()
     {
-        characrMovement.OnPlayerMovement -= MoveAnimation;
-        characrMovement.OnPlayerFall -= FallAnimation;
+        characterMovement.OnPlayerMovement -= MoveAnimation;
+        characterMovement.OnPlayerFall -= FallAnimation;
         GameManager.Instance.OnWallPhaseStarted -= FinishAnimation;
     }
 

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CharacrMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     public Action<bool> OnPlayerMovement = delegate { };
     public Action<bool> OnPlayerFall = delegate { };
@@ -21,7 +21,6 @@ public class CharacrMovement : MonoBehaviour
     protected virtual void LateUpdate()
     {
         Movement();
-        IsGrounded();
     }
 
     void Movement()
@@ -54,7 +53,6 @@ public class CharacrMovement : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
             {
                 transform.SetParent(hit.transform);
-                transform.rotation = Quaternion.identity;
                 return true;
             }
         }
