@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5771491139353665448}
-  - component: {fileID: 546178638}
   - component: {fileID: 546178637}
   - component: {fileID: 3328619366327750986}
+  - component: {fileID: 546178638}
   - component: {fileID: 1727643715}
   - component: {fileID: 1727643716}
   - component: {fileID: 6174372985581132147}
@@ -69,25 +69,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &546178638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771491139353665449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d2107f0fddaca34c9bc831b73c3fd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 3328619366327750986}
-  isGroundedOffset: {x: 0, y: 0.5, z: 0}
-  movementSpeed: 10
-  rotateSpeed: 15
-  gravityForce: 3
-  navMeshAgent: {fileID: 546178637}
-  destination: {fileID: 0}
 --- !u!195 &546178637
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -128,6 +109,25 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.35, z: 0}
+--- !u!114 &546178638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771491139353665449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2107f0fddaca34c9bc831b73c3fd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 3328619366327750986}
+  isGroundedOffset: {x: 0, y: 0.5, z: 0}
+  movementSpeed: 10
+  rotateSpeed: 15
+  gravityForce: 3
+  navMeshAgent: {fileID: 546178637}
+  destination: {fileID: 0}
 --- !u!114 &1727643715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6278379164027379216}
-  characrMovement: {fileID: 546178638}
+  characterMovement: {fileID: 546178638}
 --- !u!95 &6278379164027379216
 Animator:
   serializedVersion: 3
