@@ -103,7 +103,19 @@ MonoBehaviour:
     m_ActionId: bfcde660-3778-4456-b5e7-18c7d8c4f001
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 555932137}
+        m_TargetAssemblyTypeName: ImpactReceiver, Assembly-CSharp
+        m_MethodName: GetFireInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 21ae24ae-e641-450e-a84b-adbd20f20cf9
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -165,9 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 555932136}
   isGroundedOffset: {x: 0, y: 0.5, z: 0}
-  movementSpeed: 10
+  movementSpeed: 11
   rotateSpeed: 15
-  gravityForce: 3
+  gravityForce: 2
 --- !u!114 &1964899400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1964899399}
-  characrMovement: {fileID: 1964899397}
+  characterMovement: {fileID: 1964899397}
 --- !u!143 &555932136
 CharacterController:
   m_ObjectHideFlags: 0
@@ -194,7 +206,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.5
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -227,7 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 555932136}
-  characterPushForce: 2
+  characterPushForce: 5
+  impactParticle: {fileID: 19800000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
 --- !u!1 &841234539286219457
 GameObject:
   m_ObjectHideFlags: 0
