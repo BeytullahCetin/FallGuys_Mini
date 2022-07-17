@@ -1,6 +1,6 @@
 # Panteon Jr. Game Developer Demo Project
 
-You can download the windows build from relases part.
+You can download the windows build from relases.
 
 ## Third-Party Assets
 I have used  listed third party assets in the project.
