@@ -1,8 +1,4 @@
-# Panteon Jr. Game Developer Demo Project
-
-You can download the windows build from relases.
-
-## Third-Party Assets
+# Third-Party Assets
 I have used  listed third party assets in the project.
 - [Customizable Skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/customizable-skybox-174576)
 - [Free Draw](https://assetstore.unity.com/packages/tools/painting/free-draw-simple-drawing-on-sprites-2d-textures-113131)
